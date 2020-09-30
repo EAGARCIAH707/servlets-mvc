@@ -3,11 +3,13 @@ package com.andevs.crudmvc.controller;
 import com.andevs.crudmvc.model.dao.login.ILoginDao;
 import com.andevs.crudmvc.model.dao.login.LoginDao;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -16,7 +18,7 @@ public class LoginController extends HttpServlet {
     private ILoginDao loginDao;
 
     private void getDaoInstance() {
-        if(this.loginDao == null){
+        if (this.loginDao == null) {
             loginDao = new LoginDao();
         }
 
@@ -32,11 +34,10 @@ public class LoginController extends HttpServlet {
         Boolean result = loginDao.login(username, password);
         PrintWriter out = response.getWriter();
         if (result) {
-            out.println("<html>");
-            out.println("<title>Concertar Tutoria</title>");
-            out.println("Login exitoso!");
-            out.println("</html>");
-            out.close();
+            HttpSession session = request.getSession();
+            session.setAttribute("username", username);
+            RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/welcome.jsp");
+            rd.forward(request, response);
         } else {
             out.println("<html>");
             out.println("<title>Concertar Tutoria</title>");
