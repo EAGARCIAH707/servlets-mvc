@@ -47,8 +47,5 @@ Contributor(s):
         <property name="hibernate.connection.username">lceajvdcizixgg</property>
         <property name="hibernate.connection.password">e41db03fc7ff19fac63af85f139c9f750bcac8ff2105a6bad80231876a6f7c69</property>
         <mapping class="com.andevs.crudmvc.model.entities.Alumno"/>
-        <mapping class="com.andevs.crudmvc.model.entities.Cita"/>
-        <mapping class="com.andevs.crudmvc.model.entities.Tutoria"/>
-        <mapping class="com.andevs.crudmvc.model.entities.Tutorias"/>
     </session-factory>
 </hibernate-configuration>
