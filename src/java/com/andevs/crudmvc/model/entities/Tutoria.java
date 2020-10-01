@@ -32,11 +32,6 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 @Table(name = "tutoria")
 @XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Tutoria.findAll", query = "SELECT t FROM Tutoria t")
-    , @NamedQuery(name = "Tutoria.findByIdTutoria", query = "SELECT t FROM Tutoria t WHERE t.idTutoria = :idTutoria")
-    , @NamedQuery(name = "Tutoria.findByDia", query = "SELECT t FROM Tutoria t WHERE t.dia = :dia")
-    , @NamedQuery(name = "Tutoria.findByHora", query = "SELECT t FROM Tutoria t WHERE t.hora = :hora")})
 public class Tutoria implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -45,20 +40,21 @@ public class Tutoria implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_tutoria")
     private Integer idTutoria;
+
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 20)
     @Column(name = "dia")
     private String dia;
+
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 10)
     @Column(name = "hora")
     private String hora;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idTutoria")
-    private List<Cita> citaList;
-    @JoinColumn(name = "id_profesor", referencedColumnName = "id_profesor")
-    @ManyToOne(optional = false)
+
+
+    @Column(name = "id_profesor")
     private Profesor idProfesor;
 
     public Tutoria() {
@@ -98,15 +94,6 @@ public class Tutoria implements Serializable {
         this.hora = hora;
     }
 
-    @XmlTransient
-    public List<Cita> getCitaList() {
-        return citaList;
-    }
-
-    public void setCitaList(List<Cita> citaList) {
-        this.citaList = citaList;
-    }
-
     public Profesor getIdProfesor() {
         return idProfesor;
     }
@@ -115,29 +102,5 @@ public class Tutoria implements Serializable {
         this.idProfesor = idProfesor;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (idTutoria != null ? idTutoria.hashCode() : 0);
-        return hash;
-    }
 
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Tutoria)) {
-            return false;
-        }
-        Tutoria other = (Tutoria) object;
-        if ((this.idTutoria == null && other.idTutoria != null) || (this.idTutoria != null && !this.idTutoria.equals(other.idTutoria))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "com.andevs.crudmvc.model.entities.Tutoria[ idTutoria=" + idTutoria + " ]";
-    }
-    
 }

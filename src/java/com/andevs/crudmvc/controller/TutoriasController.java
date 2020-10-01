@@ -30,7 +30,7 @@ public class TutoriasController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
         request.setAttribute("list", list);
-        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/welcome.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/tutorias.jsp");
         rd.forward(request, response);
     }
 

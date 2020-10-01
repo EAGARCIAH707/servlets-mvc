@@ -38,9 +38,9 @@
                     <c:forEach var="item" items="${list }">
 
                     <tr>
+                        <td>${item.alumno}</td>
                         <td>${item.diaHora}</td>
-                         <td>${item.alumno}</td>
-
+                         <td>${item.profesor}</td>
                     </tr>
                 </c:forEach>
                 </tr>

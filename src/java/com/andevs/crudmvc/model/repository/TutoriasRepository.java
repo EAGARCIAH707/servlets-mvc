@@ -6,9 +6,6 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,8 +14,6 @@ public class TutoriasRepository implements ITutoriasRepository {
     private Session session;
     private Transaction transaction;
 
-    @PersistenceContext
-    EntityManager entityManager;
 
     private void initSession() {
         session = PersistenceConfig.getSessionFactory().openSession();
@@ -34,8 +29,8 @@ public class TutoriasRepository implements ITutoriasRepository {
     public List<Tutorias> findAll() {
         try {
             initSession();
-            Query result = entityManager.createNamedQuery("Tutorias.findAll", Tutorias.class);
-            return result.getResultList();
+            List<Tutorias> result = session.createCriteria(Tutorias.class).list();
+            return result;
         } catch (HibernateException e) {
             exceptionHandler(e);
         } catch (Exception e) {

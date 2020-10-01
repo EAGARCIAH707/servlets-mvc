@@ -28,11 +28,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "cita")
 @XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Cita.findAll", query = "SELECT c FROM Cita c")
-    , @NamedQuery(name = "Cita.findByIdCita", query = "SELECT c FROM Cita c WHERE c.idCita = :idCita")
-    , @NamedQuery(name = "Cita.findByAlumno", query = "SELECT c FROM Cita c WHERE c.alumno = :alumno")
-    , @NamedQuery(name = "Cita.findByAsunto", query = "SELECT c FROM Cita c WHERE c.asunto = :asunto")})
 public class Cita implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -100,29 +95,6 @@ public class Cita implements Serializable {
         this.idTutoria = idTutoria;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (idCita != null ? idCita.hashCode() : 0);
-        return hash;
-    }
 
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Cita)) {
-            return false;
-        }
-        Cita other = (Cita) object;
-        if ((this.idCita == null && other.idCita != null) || (this.idCita != null && !this.idCita.equals(other.idCita))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "com.andevs.crudmvc.model.entities.Cita[ idCita=" + idCita + " ]";
-    }
     
 }

@@ -21,18 +21,19 @@ import java.io.Serializable;
 public class Tutorias implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
     @Size(max = 50)
     @Column(name = "alumno")
-    @Transient
     private String alumno;
+
     @Size(max = 2147483647)
     @Column(name = "dia_hora")
-    @Transient
     private String diaHora;
+
     @Size(max = 50)
     @Column(name = "profesor")
-    @Transient
     private String profesor;
+
     @Id
     @Column(name = "row_number")
     private String rowNumber;
