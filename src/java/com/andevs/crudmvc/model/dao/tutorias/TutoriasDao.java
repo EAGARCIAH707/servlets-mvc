@@ -1,8 +1,8 @@
 package com.andevs.crudmvc.model.dao.tutorias;
 
 import com.andevs.crudmvc.model.entities.Tutorias;
-import com.andevs.crudmvc.model.repository.ITutoriasRepository;
-import com.andevs.crudmvc.model.repository.TutoriasRepository;
+import com.andevs.crudmvc.model.repository.tutorias.ITutoriasRepository;
+import com.andevs.crudmvc.model.repository.tutorias.TutoriasRepository;
 
 import java.util.ArrayList;
 import java.util.List;

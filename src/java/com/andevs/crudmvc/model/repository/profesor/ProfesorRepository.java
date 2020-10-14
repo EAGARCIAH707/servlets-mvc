@@ -1,4 +1,4 @@
-package com.andevs.crudmvc.model.repository;
+package com.andevs.crudmvc.model.repository.profesor;
 
 import com.andevs.crudmvc.model.configuration.PersistenceConfig;
 import com.andevs.crudmvc.model.entities.Profesor;

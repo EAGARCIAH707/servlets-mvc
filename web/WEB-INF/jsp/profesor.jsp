@@ -15,8 +15,7 @@
 </head>
 
 <body>
-<div id="login">
-    <h3 class="text-center text-white pt-5">Login form</h3>
+<div id="form">
     <div class="container">
         <div id="login-row" class="row justify-content-center align-items-center">
             <div id="login-column" class="col-md-6">

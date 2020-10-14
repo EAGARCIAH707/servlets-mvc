@@ -1,4 +1,4 @@
-package com.andevs.crudmvc.model.repository;
+package com.andevs.crudmvc.model.repository.tutorias;
 
 import com.andevs.crudmvc.model.entities.Tutorias;
 

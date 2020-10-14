@@ -1,8 +1,8 @@
 package com.andevs.crudmvc.model.dao.profesor;
 
 import com.andevs.crudmvc.model.entities.Profesor;
-import com.andevs.crudmvc.model.repository.IProfesorRepository;
-import com.andevs.crudmvc.model.repository.ProfesorRepository;
+import com.andevs.crudmvc.model.repository.profesor.IProfesorRepository;
+import com.andevs.crudmvc.model.repository.profesor.ProfesorRepository;
 
 public class ProfesorDao implements IProfesorDao {
     private IProfesorRepository profesorRepository;
