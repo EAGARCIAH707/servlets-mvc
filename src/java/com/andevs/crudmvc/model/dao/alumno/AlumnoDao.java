@@ -38,7 +38,7 @@ public class AlumnoDao implements IAlumnoDao {
 
     @Override
     public List<Alumno> findAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return alumnoRepository.findAll();
     }
 
     private Alumno getAttributes(Map<String, String> params) {
