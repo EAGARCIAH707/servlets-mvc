@@ -3,6 +3,7 @@ package com.andevs.crudmvc.model.dao.alumno;
 import com.andevs.crudmvc.model.entities.Alumno;
 import com.andevs.crudmvc.model.repository.AlumnoRepository;
 import com.andevs.crudmvc.model.repository.IAlumnoRepository;
+import java.util.Comparator;
 import org.hibernate.Query;
 
 import java.util.List;
@@ -38,7 +39,9 @@ public class AlumnoDao implements IAlumnoDao {
 
     @Override
     public List<Alumno> findAll() {
-        return alumnoRepository.findAll();
+        List<Alumno> list = alumnoRepository.findAll();
+        list.sort(Comparator.comparing(Alumno::getIdAlumno));
+        return list;
     }
 
     private Alumno getAttributes(Map<String, String> params) {

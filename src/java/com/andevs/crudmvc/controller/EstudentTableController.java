@@ -7,11 +7,8 @@ package com.andevs.crudmvc.controller;
 
 import com.andevs.crudmvc.model.dao.alumno.AlumnoDao;
 import com.andevs.crudmvc.model.dao.alumno.IAlumnoDao;
-import com.andevs.crudmvc.model.dao.login.ILoginDao;
-import com.andevs.crudmvc.model.dao.login.LoginDao;
 import com.andevs.crudmvc.model.entities.Alumno;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
