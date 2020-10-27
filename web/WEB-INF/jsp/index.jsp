@@ -36,6 +36,9 @@
                                 <div class="form-group">
                                     <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
                                 </div>
+                                <div align="center">
+                                    <a href="RegisterController">No tienes una, Registrate Aquí</a>
+                                </div>
                             </form>
                         </div>
                     </div>

@@ -25,31 +25,37 @@ public class Alumno implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_alumno")
     private Integer idAlumno;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 20)
     @Column(name = "identificacion")
     private String identificacion;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 50)
     @Column(name = "nombre")
     private String nombre;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 20)
     @Column(name = "telefono")
     private String telefono;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 20)
     @Column(name = "nombre_usuario")
     private String nombreUsuario;
-    @Basic(optional = false)
-    @NotNull
+    
     @Size(min = 1, max = 2147483647)
     @Column(name = "contrasenna")
     private String contrasenna;
+
+    @Column(name = "correo")
+    private String correo;
 
     public Alumno() {
     }
@@ -135,9 +141,17 @@ public class Alumno implements Serializable {
         return true;
     }
 
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
     @Override
     public String toString() {
         return "model.entities.Alumno[ idAlumno=" + idAlumno + " ]";
     }
-    
+
 }

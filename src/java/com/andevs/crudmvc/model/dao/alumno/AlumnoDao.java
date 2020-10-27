@@ -17,8 +17,7 @@ public class AlumnoDao implements IAlumnoDao {
     }
 
     @Override
-    public Boolean create(Map<String, String> params) {
-        Alumno alumno = getAttributes(params);
+    public Boolean create(Alumno alumno) {
         return alumnoRepository.save(alumno);
     }
 

@@ -6,7 +6,7 @@ import java.util.Map;
 
 public interface IAlumnoDao {
 
-    Boolean create(Map<String, String> properties);
+    Boolean create(Alumno alumno);
 
     Boolean update(Map<String, String> properties);
 
