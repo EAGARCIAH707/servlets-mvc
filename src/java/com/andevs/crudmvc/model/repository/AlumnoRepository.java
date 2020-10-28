@@ -64,12 +64,37 @@ public class AlumnoRepository implements IAlumnoRepository {
 
     @Override
     public Boolean update(Alumno alumno) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        try {
+            initSession();
+            session.update(alumno);
+            commitTransaction();
+            return Boolean.TRUE;
+        } catch (HibernateException e) {
+            exceptionHandler(e);
+        } catch (Exception e) {
+            System.out.println("Error in merge() " + e.getMessage());
+        } finally {
+            session.close();
+        }
+        return Boolean.FALSE;
     }
 
     @Override
     public Boolean delete(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        try {
+            Alumno alumno = findById(id);
+            initSession();
+            session.delete(alumno);
+            commitTransaction();
+            return Boolean.TRUE;
+        } catch (HibernateException e) {
+            exceptionHandler(e);
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            session.close();
+        }
+        return Boolean.FALSE;
     }
 
     @Override
@@ -79,7 +104,16 @@ public class AlumnoRepository implements IAlumnoRepository {
 
     @Override
     public Alumno findById(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        try {
+            initSession();
+            return (Alumno) session.get(Alumno.class, id);
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            session.close();
+        }
+
+        return null;
     }
 
     public Boolean login(LoginDto loginDto) {

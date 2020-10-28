@@ -3,9 +3,8 @@ package com.andevs.crudmvc.model.dao.alumno;
 import com.andevs.crudmvc.model.entities.Alumno;
 import com.andevs.crudmvc.model.repository.AlumnoRepository;
 import com.andevs.crudmvc.model.repository.IAlumnoRepository;
-import java.util.Comparator;
-import org.hibernate.Query;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
@@ -23,18 +22,25 @@ public class AlumnoDao implements IAlumnoDao {
     }
 
     @Override
-    public Boolean update(Map<String, String> properties) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Boolean update(Alumno alumno) {
+
+        Boolean result = alumnoRepository.update(alumno);
+        return result;
     }
 
     @Override
     public Boolean delete(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      return alumnoRepository.delete(id);
     }
 
     @Override
     public Alumno findByDocNumber(Long docNumber) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Alumno findById(Integer id) {
+        return alumnoRepository.findById(id);
     }
 
     @Override
