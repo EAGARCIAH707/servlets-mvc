@@ -5,9 +5,9 @@
  */
 package com.andevs.crudmvc.controller;
 
-import com.andevs.crudmvc.model.dao.alumno.AlumnoDao;
-import com.andevs.crudmvc.model.dao.alumno.IAlumnoDao;
-import com.andevs.crudmvc.model.entities.Alumno;
+import com.andevs.crudmvc.model.dao.product.ProductDao;
+import com.andevs.crudmvc.model.dao.product.IProductDao;
+import com.andevs.crudmvc.model.entities.Producto;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -25,11 +25,11 @@ import java.io.PrintWriter;
 @WebServlet(name = "EditStudent", urlPatterns = {"/EditStudent"})
 public class EditStudent extends HttpServlet {
     
-    private IAlumnoDao alumnoDao;
+    private IProductDao alumnoDao;
     
     private void getDaoInstance() {
         if (this.alumnoDao == null) {
-            alumnoDao = new AlumnoDao();
+            alumnoDao = new ProductDao();
         }
     }
     
@@ -39,15 +39,15 @@ public class EditStudent extends HttpServlet {
         
         Integer id = Integer.parseInt(request.getParameter("id"));
         getDaoInstance();
-        Alumno data = alumnoDao.findById(id);
+        Producto data = alumnoDao.findById(id);
         HttpSession session = request.getSession();
-        session.setAttribute("id", data.getIdAlumno());
+/*        session.setAttribute("id", data.getIdAlumno());
         session.setAttribute("name", data.getNombre());
         session.setAttribute("id_number", data.getIdentificacion());
         session.setAttribute("email", data.getCorreo());
         session.setAttribute("password", data.getContrasenna());
         session.setAttribute("phone", data.getTelefono());
-        session.setAttribute("username", data.getNombreUsuario());
+        session.setAttribute("username", data.getNombreUsuario());*/
         
         response.setContentType("text/html;charset=UTF-8");
         request.setAttribute("data", data);
@@ -60,15 +60,15 @@ public class EditStudent extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         getDaoInstance();
-        Alumno alumno = new Alumno();
-        alumno.setIdAlumno(Integer.parseInt(request.getParameter("id")));
-        alumno.setNombre(request.getParameter("name"));
-        alumno.setIdentificacion(request.getParameter("id_number"));
-        alumno.setCorreo(request.getParameter("email"));
-        alumno.setNombreUsuario(request.getParameter("username"));
-        alumno.setContrasenna(request.getParameter("password"));
-        alumno.setTelefono(request.getParameter("phone"));
-        Boolean result = alumnoDao.update(alumno);
+        Producto producto = new Producto();
+/*        producto.setIdAlumno(Integer.parseInt(request.getParameter("id")));
+        producto.setNombre(request.getParameter("name"));
+        producto.setIdentificacion(request.getParameter("id_number"));
+        producto.setCorreo(request.getParameter("email"));
+        producto.setNombreUsuario(request.getParameter("username"));
+        producto.setContrasenna(request.getParameter("password"));
+        producto.setTelefono(request.getParameter("phone"));*/
+        Boolean result = alumnoDao.update(producto);
         
         PrintWriter out = response.getWriter();
         if (result) {

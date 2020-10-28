@@ -5,37 +5,47 @@
  */
 package com.andevs.crudmvc.controller;
 
-import com.andevs.crudmvc.model.entities.Alumno;
-import com.andevs.crudmvc.model.repository.AlumnoRepository;
+import com.andevs.crudmvc.model.dao.product.IProductDao;
+import com.andevs.crudmvc.model.dao.product.ProductDao;
+import com.andevs.crudmvc.model.entities.Producto;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author lenovo
  */
-@WebServlet(urlPatterns = {"/Main"})
+@WebServlet(urlPatterns = {"/"})
 public class MainServlet extends HttpServlet {
+
+    private IProductDao productDao;
+
+    private void getDaoInstance() {
+        if (this.productDao == null) {
+            productDao = new ProductDao();
+        }
+    }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        getDaoInstance();
+        List<Producto> list = productDao.findAll();
         response.setContentType("text/html;charset=UTF-8");
-        Calendar today = new GregorianCalendar();
-        try (PrintWriter out = response.getWriter()) {
-            out.print("Fecha: "
-                    + today.get(Calendar.DAY_OF_MONTH) + "/"
-                    + today.get((Calendar.MONTH) + 1) + "/"
-                    + today.get(Calendar.YEAR) + " ");
-            out.close();
-        }
+        HttpSession session = request.getSession();
+        request.setAttribute("list", list);
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/index.jsp");
+        rd.forward(request, response);
     }
 
     @Override

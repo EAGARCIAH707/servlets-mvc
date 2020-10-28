@@ -35,35 +35,25 @@ public class Producto implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_producto")
     private Integer idProducto;
-    
+
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 100)
     @Column(name = "nombre")
     private String nombre;
-    
+
     @Basic(optional = false)
     @NotNull
     @Column(name = "precio")
-    private double precio;
-    
+    private Double precio;
+
     @Basic(optional = false)
     @NotNull
     @Column(name = "unidades")
-    private int unidades;
+    private Integer unidades;
 
-    public Producto() {
-    }
-
-    public Producto(Integer idProducto) {
-        this.idProducto = idProducto;
-    }
-
-    public Producto(Integer idProducto, String nombre, double precio, int unidades) {
-        this.idProducto = idProducto;
-        this.nombre = nombre;
-        this.precio = precio;
-        this.unidades = unidades;
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
     public Integer getIdProducto() {
@@ -82,45 +72,19 @@ public class Producto implements Serializable {
         this.nombre = nombre;
     }
 
-    public double getPrecio() {
+    public Double getPrecio() {
         return precio;
     }
 
-    public void setPrecio(double precio) {
+    public void setPrecio(Double precio) {
         this.precio = precio;
     }
 
-    public int getUnidades() {
+    public Integer getUnidades() {
         return unidades;
     }
 
-    public void setUnidades(int unidades) {
+    public void setUnidades(Integer unidades) {
         this.unidades = unidades;
     }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (idProducto != null ? idProducto.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Producto)) {
-            return false;
-        }
-        Producto other = (Producto) object;
-        if ((this.idProducto == null && other.idProducto != null) || (this.idProducto != null && !this.idProducto.equals(other.idProducto))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "com.andevs.crudmvc.model.entities.Producto[ idProducto=" + idProducto + " ]";
-    }
-    
 }

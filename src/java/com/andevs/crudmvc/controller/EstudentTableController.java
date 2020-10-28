@@ -5,9 +5,9 @@
  */
 package com.andevs.crudmvc.controller;
 
-import com.andevs.crudmvc.model.dao.alumno.AlumnoDao;
-import com.andevs.crudmvc.model.dao.alumno.IAlumnoDao;
-import com.andevs.crudmvc.model.entities.Alumno;
+import com.andevs.crudmvc.model.dao.product.ProductDao;
+import com.andevs.crudmvc.model.dao.product.IProductDao;
+import com.andevs.crudmvc.model.entities.Producto;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
@@ -24,11 +24,11 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet(name = "EstudentTableController", urlPatterns = {"/EstudentTableController"})
 public class EstudentTableController extends HttpServlet {
-    private IAlumnoDao alumnoDao;
+    private IProductDao alumnoDao;
 
     private void getDaoInstance() {
         if (this.alumnoDao == null) {
-            alumnoDao = new AlumnoDao();
+            alumnoDao = new ProductDao();
         }
     }
 
@@ -37,7 +37,7 @@ public class EstudentTableController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         getDaoInstance();
-        List<Alumno> list = alumnoDao.findAll();
+        List<Producto> list = alumnoDao.findAll();
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
         request.setAttribute("list", list);

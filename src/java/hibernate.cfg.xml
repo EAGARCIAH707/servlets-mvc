@@ -46,6 +46,6 @@ Contributor(s):
         <property name="hibernate.connection.url">jdbc:postgresql://ec2-52-86-33-50.compute-1.amazonaws.com:5432/d9gnl5su0nei47</property>
         <property name="hibernate.connection.username">lceajvdcizixgg</property>
         <property name="hibernate.connection.password">e41db03fc7ff19fac63af85f139c9f750bcac8ff2105a6bad80231876a6f7c69</property>
-        <mapping class="com.andevs.crudmvc.model.entities.Alumno"/>
+        <mapping class="com.andevs.crudmvc.model.entities.Producto"/>
     </session-factory>
 </hibernate-configuration>

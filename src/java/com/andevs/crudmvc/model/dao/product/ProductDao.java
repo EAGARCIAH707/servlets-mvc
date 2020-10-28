@@ -1,0 +1,56 @@
+package com.andevs.crudmvc.model.dao.product;
+
+import com.andevs.crudmvc.model.entities.Producto;
+import com.andevs.crudmvc.model.repository.IProductRepository;
+import com.andevs.crudmvc.model.repository.ProductRepository;
+
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+
+public class ProductDao implements IProductDao {
+
+    private final IProductRepository alumnoRepository;
+
+    public ProductDao() {
+        alumnoRepository = new ProductRepository();
+    }
+
+    @Override
+    public Boolean create(Producto producto) {
+        return alumnoRepository.save(producto);
+    }
+
+    @Override
+    public Boolean update(Producto producto) {
+
+        Boolean result = alumnoRepository.update(producto);
+        return result;
+    }
+
+    @Override
+    public Boolean delete(Integer id) {
+        return alumnoRepository.delete(id);
+    }
+
+    @Override
+    public Producto findByDocNumber(Long docNumber) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Producto findById(Integer id) {
+        return alumnoRepository.findById(id);
+    }
+
+    @Override
+    public List<Producto> findAll() {
+        List<Producto> list = alumnoRepository.findAll();
+        list.sort(Comparator.comparing(Producto::getIdProducto));
+        return list;
+    }
+
+    private Producto getAttributes(Map<String, String> params) {
+        return new Producto();
+    }
+}

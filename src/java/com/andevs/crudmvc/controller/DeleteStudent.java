@@ -5,8 +5,8 @@
  */
 package com.andevs.crudmvc.controller;
 
-import com.andevs.crudmvc.model.dao.alumno.AlumnoDao;
-import com.andevs.crudmvc.model.dao.alumno.IAlumnoDao;
+import com.andevs.crudmvc.model.dao.product.ProductDao;
+import com.andevs.crudmvc.model.dao.product.IProductDao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -22,11 +22,11 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "DeleteStudent", urlPatterns = {"/DeleteStudent"})
 public class DeleteStudent extends HttpServlet {
 
-    private IAlumnoDao alumnoDao;
+    private IProductDao alumnoDao;
 
     private void getDaoInstance() {
         if (this.alumnoDao == null) {
-            alumnoDao = new AlumnoDao();
+            alumnoDao = new ProductDao();
         }
     }
 
