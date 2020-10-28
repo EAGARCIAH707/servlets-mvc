@@ -40,7 +40,7 @@ public class RegisterController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws IOException {
         getDaoInstance();
         Producto producto = new Producto();
         producto.setNombre(request.getParameter("name"));
@@ -53,12 +53,14 @@ public class RegisterController extends HttpServlet {
         if (result) {
             out.println("<html>");
             out.println("Producto ingresado con exito");
+            out.println("<a href=\"/crud-mvc/\">Ver tabla</a>");
             out.println("</html>");
             out.close();
 
         } else {
             out.println("<html>");
-            out.println("<title>Concertar Tutoria</title>");
+            out.println("<title>Error</title>");
+            out.println("<a href=\"/crud-mvc/\">Ver tabla</a>");
             out.println("Datos invalidos");
             out.println("</html>");
             out.close();

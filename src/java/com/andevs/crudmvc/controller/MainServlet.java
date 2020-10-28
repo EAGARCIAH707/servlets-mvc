@@ -42,7 +42,6 @@ public class MainServlet extends HttpServlet {
         getDaoInstance();
         List<Producto> list = productDao.findAll();
         response.setContentType("text/html;charset=UTF-8");
-        HttpSession session = request.getSession();
         request.setAttribute("list", list);
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/index.jsp");
         rd.forward(request, response);

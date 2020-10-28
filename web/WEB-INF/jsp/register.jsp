@@ -14,7 +14,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <title>SignUp</title>
+    <title>Agregar Producto</title>
 
 </head>
 <body>
@@ -24,25 +24,26 @@
             <br>
             <div class="panel panel-default">
                 <div class="panel-body">
+                    <h3 class="text-center">Agregar producto</h3>
+                    <br>
                     <form role="form" name="RegisterForm" action="RegisterController" method="post">
+                        <div class="form-group">
+                            <input type="text" name="name" id="name" class="form-control input-sm"
+                                   placeholder="Nombre">
+                        </div>
                         <div class="row">
                             <div class="col-xs-6 col-sm-6 col-md-6">
                                 <div class="form-group">
-                                    <input type="text" name="name" id="name" class="form-control input-sm"
-                                           placeholder="Nombre">
+                                    <input type="number" name="units" id="units" class="form-control input-sm"
+                                           placeholder="Unidades">
                                 </div>
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-6">
                                 <div class="form-group">
                                     <input type="number" name="price" id="price" class="form-control input-sm"
-                                           placeholder="Precio">
+                                           placeholder="Price">
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="number" name="units" id="units" class="form-control input-sm"
-                                   placeholder="Unidades">
                         </div>
 
 

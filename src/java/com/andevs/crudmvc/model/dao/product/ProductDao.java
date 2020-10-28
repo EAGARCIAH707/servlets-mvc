@@ -22,25 +22,8 @@ public class ProductDao implements IProductDao {
     }
 
     @Override
-    public Boolean update(Producto producto) {
-
-        Boolean result = alumnoRepository.update(producto);
-        return result;
-    }
-
-    @Override
     public Boolean delete(Integer id) {
         return alumnoRepository.delete(id);
-    }
-
-    @Override
-    public Producto findByDocNumber(Long docNumber) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Producto findById(Integer id) {
-        return alumnoRepository.findById(id);
     }
 
     @Override
