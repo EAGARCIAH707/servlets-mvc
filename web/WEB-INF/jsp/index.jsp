@@ -19,9 +19,9 @@
 <body>
 
 <link href='http://fonts.googleapis.com/css?family=Raleway:400,200' rel='stylesheet' type='text/css'>
-<h1 class="text-center">Tabla de Tutorias</h1>
+<h1 class="text-center">Productos</h1>
 <br>
-<h3><a href="/crud-mvc/RegisterController">Agregar Producto</a></h3>
+<h3 class="text-center"><a href="/crud-mvc/RegisterController">Agregar Producto</a></h3>
 <div class="container">
     <table class="table">
         <thead>
@@ -30,8 +30,6 @@
             <th scope="col">Nombre</th>
             <th scope="col">Precio</th>
             <th scope="col">Unidades</th>
-<%--            <th scope="col">Editar</th>
-            <th scope="col">Eliminar</th>--%>
         </tr>
         </thead>
         <tbody>
@@ -44,8 +42,6 @@
             <td>${item.nombre}</td>
             <td>${item.precio}</td>
             <td>${item.unidades}</td>
-<%--            <td><a href="/crud-mvc/EditStudent?id=${item.idAlumno}">Editar</a></td>
-            <td><a href="/crud-mvc/DeleteStudent?id=${item.idAlumno}">Eliminar</a></td>--%>
         </tr>
         </c:forEach>
         </tr>

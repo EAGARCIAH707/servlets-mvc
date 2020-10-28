@@ -46,7 +46,7 @@
                         </div>
 
 
-                        <input type="submit" value="Registrar" class="btn btn-info btn-block">
+                        <input type="submit" value="Guardar" class="btn btn-info btn-block">
 
                     </form>
                 </div>
