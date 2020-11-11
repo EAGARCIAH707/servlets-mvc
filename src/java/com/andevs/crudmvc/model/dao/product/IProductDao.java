@@ -10,4 +10,8 @@ public interface IProductDao {
     Boolean delete(Integer id);
 
     List<Producto> findAll();
+
+    Boolean update(Producto producto);
+
+    Producto findById(Integer id);
 }

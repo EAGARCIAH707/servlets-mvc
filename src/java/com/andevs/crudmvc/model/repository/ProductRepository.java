@@ -41,6 +41,23 @@ public class ProductRepository implements IProductRepository {
     }
 
     @Override
+    public Boolean update(Producto producto) {
+        try {
+            initSession();
+            session.update(producto);
+            commitTransaction();
+            return Boolean.TRUE;
+        } catch (HibernateException e) {
+            // exceptionHandler(e);
+        } catch (Exception e) {
+            System.out.println("Error in findAll() " + e.getMessage());
+        } finally {
+            session.close();
+        }
+        return null;
+    }
+
+    @Override
     public Boolean save(Producto producto) {
         try {
             initSession();
@@ -91,7 +108,6 @@ public class ProductRepository implements IProductRepository {
 
         return null;
     }
-
 
 
     private void exceptionHandler(HibernateException e) {

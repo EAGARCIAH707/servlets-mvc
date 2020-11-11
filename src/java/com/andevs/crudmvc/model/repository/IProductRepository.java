@@ -14,4 +14,5 @@ public interface IProductRepository {
 
     List<Producto> findAll();
 
+    Boolean update(Producto producto);
 }

@@ -30,18 +30,22 @@
             <th scope="col">Nombre</th>
             <th scope="col">Precio</th>
             <th scope="col">Unidades</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Eliminar</th>
         </tr>
         </thead>
         <tbody>
 
         <tr>
             <c:forEach var="item" items="${list }">
-
         <tr>
             <td>${item.idProducto}</td>
             <td>${item.nombre}</td>
             <td>${item.precio}</td>
             <td>${item.unidades}</td>
+            <td><a href="/crud-mvc/EditProduct?id=${item.idProducto}">Editar</a></td>
+            <td><a href="/crud-mvc/DeleteProduct?id=${item.idProducto}">Eliminar</a></td>
+
         </tr>
         </c:forEach>
         </tr>

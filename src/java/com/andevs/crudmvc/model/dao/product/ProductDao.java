@@ -33,6 +33,16 @@ public class ProductDao implements IProductDao {
         return list;
     }
 
+    @Override
+    public Boolean update(Producto producto) {
+        return alumnoRepository.update(producto);
+    }
+
+    @Override
+    public Producto findById(Integer id) {
+        return alumnoRepository.findById(id);
+    }
+
     private Producto getAttributes(Map<String, String> params) {
         return new Producto();
     }
